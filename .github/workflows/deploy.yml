@@ -33,6 +33,14 @@ jobs:
           docker build -t ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_IMAGE_NAME }}:latest .
           docker push ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_IMAGE_NAME }}:latest
 
+      - name: Check .env file
+        run: |
+          ls -l .env
+
+      - name: Check folder
+        run: |
+          ls -la
+
       - name: Deploy to Server
         uses: appleboy/ssh-action@master
         with:
