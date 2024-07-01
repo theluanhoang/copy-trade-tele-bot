@@ -13,5 +13,9 @@ RUN pip install --upgrade pip \
 # Sao chép toàn bộ mã nguồn vào container
 COPY . .
 
+COPY .env .
+
+EXPOSE 80
+
 # Chạy ứng dụng
 CMD ["python", "server.py"]
