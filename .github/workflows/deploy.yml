@@ -12,7 +12,7 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-      
+
       - name: Log in to Docker Hub
         uses: docker/login-action@v2
         with:
@@ -26,10 +26,10 @@ jobs:
           GROUP_A_ID: ${{ secrets.GROUP_A_ID }}
           GROUP_B_ID: ${{ secrets.GROUP_B_ID }}
         run: |
-          echo "TELE_API_ID=${{ secrets.TELE_API_ID }}" > .env
-          echo "TELE_API_HASH=${{ secrets.TELE_API_HASH }}" >> .env
-          echo "GROUP_A_ID=${{ secrets.GROUP_A_ID }}" >> .env
-          echo "GROUP_B_ID=${{ secrets.GROUP_B_ID }}" >> .env
+          echo "TELE_API_ID=${TELE_API_ID}" > .env
+          echo "TELE_API_HASH=${TELE_API_HASH}" >> .env
+          echo "GROUP_A_ID=${GROUP_A_ID}" >> .env
+          echo "GROUP_B_ID=${GROUP_B_ID}" >> .env
           docker build -t ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_IMAGE_NAME }}:latest .
           docker push ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_IMAGE_NAME }}:latest
 
@@ -52,4 +52,4 @@ jobs:
             docker pull ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_IMAGE_NAME }}:latest
             docker stop ${{ secrets.DOCKER_IMAGE_NAME }} || true
             docker rm ${{ secrets.DOCKER_IMAGE_NAME }} || true
-            docker run -d --env-file $GITHUB_WORKSPACE/.env ${{ secrets.DOCKER_IMAGE_NAME }}
+            docker run -d --env-file $GITHUB_WORKSPACE/.env ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_IMAGE_NAME }}:latest
