@@ -11,11 +11,7 @@ load_dotenv()
 # Các thông tin cần thiết cho việc kết nối với Telegram
 api_id = os.getenv('TELE_API_ID')
 api_hash = os.getenv('TELE_API_HASH')
-session_name = 'copy_trade_session'  # Tên phiên làm việc của bạn
-print("api_id:::", api_id)
-print("api_hash:::", api_hash)
-print("session_name:::", session_name)
-# ID của nhóm A (nhóm nguồn)
+session_name = 'copy_trade_session' 
 GROUP_A_ID = -1002059628874
 
 # ID của nhóm B (nhóm đích)
