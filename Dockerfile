@@ -15,6 +15,8 @@ COPY . .
 
 COPY .env .env
 
+RUN cat .env
+
 EXPOSE 80
 
 # Chạy ứng dụng

@@ -58,6 +58,4 @@ jobs:
           script: |
             docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_ACCESS_TOKEN }}
             docker pull ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_IMAGE_NAME }}:latest
-            docker stop ${{ secrets.DOCKER_IMAGE_NAME }} || true
-            docker rm ${{ secrets.DOCKER_IMAGE_NAME }} || true
             docker run -d ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_IMAGE_NAME }}:latest
