@@ -13,7 +13,7 @@ RUN pip install --upgrade pip \
 # Sao chép toàn bộ mã nguồn vào container
 COPY . .
 
-COPY .env .
+COPY .env .env
 
 EXPOSE 80
 
