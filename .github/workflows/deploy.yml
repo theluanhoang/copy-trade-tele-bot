@@ -41,6 +41,14 @@ jobs:
         run: |
           ls -la
 
+      - name: Check path 
+        run: |
+          echo "$GITHUB_WORKSPACE/.env"
+
+      - name: Check content .env 
+        run: |
+          cat .env
+
       - name: Deploy to Server
         uses: appleboy/ssh-action@master
         with:
