@@ -8,6 +8,7 @@ from telethon.errors.rpcerrorlist import MessageIdInvalidError  # type: ignore
 
 load_dotenv()
 
+# Các thông tin cần thiết cho việc kết nối với Telegram
 api_id = os.getenv('TELE_API_ID')
 api_hash = os.getenv('TELE_API_HASH')
 session_name = 'copy_trade_session' 
