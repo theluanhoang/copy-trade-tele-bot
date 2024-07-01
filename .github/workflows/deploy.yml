@@ -32,9 +32,7 @@ jobs:
           echo "GROUP_B_ID=${{ secrets.GROUP_B_ID }}" >> .env
           docker build -t ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_IMAGE_NAME }}:latest .
           docker push ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_IMAGE_NAME }}:latest
-      - name: Get path to .env file
-        run: echo "$GITHUB_WORKSPACE/.env"
-        
+
       - name: Check .env file
         run: |
           ls -l .env
@@ -54,4 +52,4 @@ jobs:
             docker pull ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_IMAGE_NAME }}:latest
             docker stop ${{ secrets.DOCKER_IMAGE_NAME }} || true
             docker rm ${{ secrets.DOCKER_IMAGE_NAME }} || true
-            docker run -d --env-file .env ${{ secrets.DOCKER_IMAGE_NAME }}
+            docker run -d --env-file $GITHUB_WORKSPACE/.env ${{ secrets.DOCKER_IMAGE_NAME }}
