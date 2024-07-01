@@ -12,10 +12,11 @@ load_dotenv()
 api_id = os.getenv('TELE_API_ID')
 api_hash = os.getenv('TELE_API_HASH')
 session_name = 'copy_trade_session' 
-GROUP_A_ID = os.getenv('GROUP_A_ID')
+GROUP_A_ID_STR = os.getenv('GROUP_A_ID')
+GROUP_B_ID_STR = os.getenv('GROUP_B_ID')
 
-# ID của nhóm B (nhóm đích)
-GROUP_B_ID = os.getenv('GROUP_B_ID')
+GROUP_A_ID = int(GROUP_A_ID_STR)
+GROUP_B_ID = int(GROUP_B_ID_STR)
 
 print("GROUP_A_ID:::", GROUP_A_ID)
 print("GROUP_B_ID:::", GROUP_B_ID)

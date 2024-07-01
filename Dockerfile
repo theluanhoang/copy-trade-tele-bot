@@ -7,8 +7,8 @@ WORKDIR /app
 # Sao chép file requirements.txt vào container
 COPY requirements.txt .
 
-RUN pip install --upgrade pip \ 
-    && pip install --no-cache-dir -r requirements.txt
+RUN pip install --upgrade pip
+RUN pip install --no-cache-dir -r requirements.txt
 
 # Sao chép toàn bộ mã nguồn vào container
 COPY . .
